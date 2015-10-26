@@ -2,11 +2,15 @@ package aimee.morgan.com.twitterclone.models;
 
 import android.content.Context;
 
+import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
+import com.activeandroid.query.Select;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.TimeZone;
 
 import aimee.morgan.com.twitterclone.R;
@@ -16,7 +20,7 @@ import aimee.morgan.com.twitterclone.R;
  */
 
 @Table(name="Tweets", id="_id")
-public class Tweet {
+public class Tweet extends Model{
 
     @Column(name = "Content")
     private String mContent;
@@ -65,6 +69,13 @@ public class Tweet {
         SimpleDateFormat formatter = new SimpleDateFormat(context.getString(R.string.formatted_time));
         formatter.setTimeZone(TimeZone.getTimeZone(context.getString(R.string.timezone)));
         return formatter.format(mCreatedAt);
+    }
+
+    public static List<Tweet> all() {
+        return new Select()
+                .from(Tweet.class)
+                .execute();
+
     }
 }
 
