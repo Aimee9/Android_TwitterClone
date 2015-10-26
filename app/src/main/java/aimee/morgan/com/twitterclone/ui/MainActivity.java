@@ -40,7 +40,7 @@ public class MainActivity extends ListActivity {
         mPreferences = getApplicationContext().getSharedPreferences("twitter", Context.MODE_PRIVATE);
 
         mTweetText = (EditText)findViewById(R.id.newTweetEdit);
-        mSubmitButton = (Button) findViewById(R.id.tweetSubmitButton
+        mSubmitButton = (Button) findViewById(R.id.tweetSubmitButton);
         mTweets = (ArrayList) Tweet.all();
         mAdapter = new TweetAdapter(this, mTweets);
         setListAdapter(mAdapter);
