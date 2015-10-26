@@ -30,7 +30,7 @@ public class MainActivity extends ListActivity {
     private Button mSubmitButton;
     private ArrayList<Tweet> mTweets;
     private TweetAdapter mAdapter;
-    private ListView mListView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +40,7 @@ public class MainActivity extends ListActivity {
         mPreferences = getApplicationContext().getSharedPreferences("twitter", Context.MODE_PRIVATE);
 
         mTweetText = (EditText)findViewById(R.id.newTweetEdit);
-        mSubmitButton = (Button) findViewById(R.id.tweetSubmitButton);
-        mListView = (ListView) findViewById(android.R.id.list);
+        mSubmitButton = (Button) findViewById(R.id.tweetSubmitButton
         mTweets = (ArrayList) Tweet.all();
         mAdapter = new TweetAdapter(this, mTweets);
         setListAdapter(mAdapter);
